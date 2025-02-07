@@ -1,0 +1,44 @@
+﻿@using Web.Models.Role
+@using Web.Helper
+@using DbLayer.Helpers
+
+@model List<RoleVM>
+
+<table id="@TableId.RolesList" class="table table-striped w-100">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Normalized</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Any())
+		{
+			@foreach (var role in Model)
+			{
+				<tr>
+					<td>@role.Name</td>
+					<td>@role.NormalizedName</td>
+					<td>
+						@if (role.Name == nameof(UserRole.Admin) || role.Name == nameof(UserRole.Patient))
+						{
+							<p class="m-0 text-danger"><i>Permenant</i></p>
+						}
+						else
+						{
+							<a data-id="@role.Id" class="p-1 @ButtonClass.RoleEdit"><i class="align-middle" data-feather="edit-2"></i></a>
+							<a data-id="@role.Id" class="p-1 @ButtonClass.RoleDelete text-danger"><i class="align-middle" data-feather="trash"></i></a>
+						}
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
+
+<script>
+	(function () {
+		Controls.InitiateDataTable('@TableId.RolesList');
+	})();
+</script>

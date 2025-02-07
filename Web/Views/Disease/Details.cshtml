@@ -1,0 +1,91 @@
+﻿@using Web.Helper
+@using Web.Models.Disease
+
+@model DiseaseMainVM
+
+@{
+	ViewBag.Title = "Disease Details";
+}
+
+<div class="container-fluid p-0">
+
+	<div class="mb-3">
+		<h1 class="h3 d-inline align-middle">Disease Details</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header d-flex justify-content-between align-content-between align-items-center flex-wrap">
+					<div>
+						<h5 class="card-title">Disease Details with images</h5>
+						<h6 class="card-subtitle text-muted">
+							Here you can manage disease details.
+						</h6>
+					</div>
+					<div>
+						<a onclick="history.back()" class="btn btn-default">Back</a>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="tab tab-vertical tab-light text-secondary">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active"
+								   href="#@Model.DiseaseInfoTabId"
+								   data-reload-id="@Model.DiseaseInfoTabId"
+								   data-url="@Url.Action("DiseaseDetails", "Disease", new { id = Model.DiseaseId })"
+								   data-bs-toggle="tab"
+								   role="tab">
+									<i class="align-middle" data-feather="alert-triangle"></i>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content text-secondary">
+							<div class="tab-pane active" id="@Model.DiseaseInfoTabId" role="tabpanel">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section scripts {
+
+	@*-- Render script of image --*@
+	@await Html.PartialAsync("Image/_Scripts")
+
+	<script>
+		(function () {
+
+			/**
+			 * Open disease pop-up when click edit button
+			 * Take the Url action to load partial and Open the bootstrap modal
+			 */
+			var EditDisease = function()
+			{
+				var id  = $(this).attr("data-id");
+				var url = `@Url.Action("AddEdit", "Disease")?id=${id}`;
+
+				Controls.OpenPopUpModal(url, "@UniqueIdentifier.MainModelId", "Update Disease Details");
+			}
+
+			/**
+			 * Submit the form via ajax and close the main modal
+			 */
+			var SubmitModalForm = function()
+			{
+				var form = $(this).closest('.modal').find('.modal-body form');
+
+				Controls.RelaodContainerOnModalPost("@UniqueIdentifier.MainModelId", form, '@ContainerId.DiseaseDetails', LoadTabActive);
+			}
+
+
+			// Handle events
+			$(document).on('click', '#@ButtonId.DiseaseEdit', EditDisease);
+			$(document).on('click', '.@ButtonClass.MainModalSubmit', SubmitModalForm);
+		})();
+	</script>
+}

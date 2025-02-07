@@ -1,0 +1,77 @@
+
+
+.avatar.profile-pic[alt]{
+    font-size:14px;
+}
+
+.btn.btn-default{
+    border: 1px solid #ccc;
+}
+
+.btn.btn-default:hover{
+    background: #f1f1f1;
+}
+
+.main-frame-card{
+    min-height: 65vh;
+}
+
+.label-required::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.font-big{
+    font-size: 25px;
+}
+
+.text-light-primary {
+    color: #cfe2ff;
+}
+
+.text-light-success {
+    color: #d1e7dd;
+}
+
+.text-light-warning {
+    color: #fff3cd;
+}
+
+.text-light-danger {
+    color: #f8d7da;
+}
+
+.border-card-body {
+    border-top: 1px solid #f1f1f1 !important;
+    border-bottom: 1px solid #f1f1f1 !important;
+}
+
+.border-top {
+    border-top: 1px solid #f1f1f1 !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #f1f1f1 !important;
+}
+
+.border-light {
+    border-top: 1px solid #f1f1f1 !important;
+}
+
+/*----- Over written theme css starts ------*/
+.tab-light .nav-tabs .nav-link.active {
+    color: #343a40 !important;
+}
+
+.tab-light .nav-tabs .nav-link {
+    color: rgba(0,0,0,.5) !important;
+}
+
+.tab-pane {
+    min-height: 50vh;
+}
+
+/*----- Over written theme css ends ------*/
+
+
