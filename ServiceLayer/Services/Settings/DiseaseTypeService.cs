@@ -1,13 +1,7 @@
 ﻿using DbLayer.Helpers;
 using DbLayer.Interfaces.Settings;
-using DbLayer.Models.Patient;
 using DbLayer.Models.Settings;
 using ServiceLayer.Interfaces.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace ServiceLayer.Services.Settings

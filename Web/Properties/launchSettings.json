@@ -34,5 +34,16 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
+  },
+  "release": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5234",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Release"
+      }
+    }
   }
 }

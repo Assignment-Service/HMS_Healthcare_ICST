@@ -37,6 +37,7 @@ namespace DbLayer
 			services.AddScoped<IPatientsRepository, PatientsRepository>();
 			services.AddTransient<IDiseaseRepository, DiseaseRepository>();
 
+			services.AddTransient<IDiseaseTypeRepository, DiseaseTypeRepository>();
 			return services;
         }
     }
